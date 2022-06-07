@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: prod
+
+#logging:
+#  level:
+#    root: warn
+#    io.haedoang.springlogging.MyController: info
