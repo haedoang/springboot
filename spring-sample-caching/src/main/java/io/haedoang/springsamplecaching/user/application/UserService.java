@@ -3,9 +3,7 @@ package io.haedoang.springsamplecaching.user.application;
 import io.haedoang.springsamplecaching.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -46,4 +44,6 @@ public class UserService {
                 .findFirst()
                 .orElse(new User("unknown", 0));
     }
+
+
 }
