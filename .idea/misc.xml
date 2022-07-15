@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/spring-ehcache" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-logging" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-redis" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-sample-caching" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-sample-rest" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/spring-cloud-eureka-openfeign/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="corretto-11" project-jdk-type="JavaSDK" />
+</project>
