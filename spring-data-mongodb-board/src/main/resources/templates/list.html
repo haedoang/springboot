@@ -1,0 +1,12 @@
+<h3>list</h3>
+
+<table>
+    <tbody>
+        <tr th:each="board : ${boards}">
+            <td th:text="${board.id}">id</td>
+            <td th:text="${board.title}">title</td>
+            <td th:text="${board.content}">content</td>
+            <td th:text="${board.writer}">writer</td>
+        </tr>
+    </tbody>
+</table>
