@@ -20,7 +20,8 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean
+
+	//@Bean
 	CommandLineRunner runner(
 			StudentRepository repository,
 			MongoTemplate mongoTemplate
