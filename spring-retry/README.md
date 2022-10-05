@@ -18,3 +18,9 @@
 - 예외 발생 후 처리를 담당하는 메서드에 선언한다
 - 주의해야할 점은 예외발생 메서드에서 예외를 위로 던지는 경우 `@Recover` 가 선언된 메서드가 캐치하는 점에 있다
   - 코드를 읽을 때 헷갈릴 수 있을 것 같으며, 불필요한 예외처리가 발생될 수 있을 것 같다
+
+
+### 주의사항
+
+- 현재 최신 버전인 1.3.3 버전이 취약점 이슈에 등록되어 있어서 사용에 문제가 있어 보인다
+  - [https://mvnrepository.com/artifact/org.springframework.retry/spring-retry/1.3.3](https://mvnrepository.com/artifact/org.springframework.retry/spring-retry/1.3.3)
