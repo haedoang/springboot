@@ -18,4 +18,10 @@ public interface ArticleMapper {
     Optional<Article> findOne(Long id);
 
     List<Article> list();
+
+    void save(Article article);
+
+    void update(Article article);
+
+    void delete(Long id);
 }

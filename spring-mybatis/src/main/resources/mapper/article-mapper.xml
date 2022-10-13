@@ -17,4 +17,18 @@
         SELECT *
           FROM ARTICLES
     </select>
+
+    <insert id="save" parameterType="io.haedoang.springmybatis.entity.Article" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO ARTICLES(TITLE, AUTHOR) VALUES (#{title}, #{author})
+    </insert>
+
+    <update id="update" parameterType="io.haedoang.springmybatis.entity.Article">
+        UPDATE ARTICLES
+           SET TITLE = #{title}, AUTHOR = #{author}
+         WHERE ID = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM ARTICLES WHERE ID = #{id}
+    </delete>
 </mapper>

@@ -52,4 +52,44 @@ class ArticleMapperTest {
         // then
         assertThat(actual.isPresent()).isFalse();
     }
+
+    @Test
+    @DisplayName("등록하기")
+    public void save() {
+        // given
+        Article article = Article.valueOf("안녕하세요", "김해동");
+
+        // when
+        articleMapper.save(article);
+
+        // then
+        assertThat(article.getId()).isNotNull();
+    }
+
+    @Test
+    @DisplayName("수정")
+    public void update() {
+        //given
+        final Article savedArticle = articleMapper.findOne(1L).get();
+        final Article updateArticle = Article.valueOf("변경된 제목", "김변경");
+
+        // when
+        savedArticle.update(updateArticle);
+        articleMapper.update(savedArticle);
+
+        // then
+        assertThat(articleMapper.findOne(savedArticle.getId()).get()).extracting(Article::getTitle)
+                .isEqualTo("변경된 제목");
+    }
+
+    @Test
+    @DisplayName("삭제")
+    public void delete() {
+        // when
+        articleMapper.delete(1L);
+
+        // then
+        assertThat(articleMapper.list()).hasSize(1);
+    }
 }
+
