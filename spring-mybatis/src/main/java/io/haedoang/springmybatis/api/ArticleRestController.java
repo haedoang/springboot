@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * author : haedoang
  * date : 2022/10/10
@@ -22,6 +24,13 @@ public class ArticleRestController {
         this.articleService = articleService;
     }
 
+    @GetMapping
+    public ResponseEntity<List<Article>> list() {
+        final List<Article> response = articleService.list();
+
+        return ResponseEntity.ok()
+                .body(response);
+    }
     @GetMapping("{id}")
     public ResponseEntity<Article> findOne(@PathVariable("id") Long id) {
         final Article response = articleService.findOne(id);
@@ -29,4 +38,6 @@ public class ArticleRestController {
         return ResponseEntity.ok()
                 .body(response);
     }
+
+
 }

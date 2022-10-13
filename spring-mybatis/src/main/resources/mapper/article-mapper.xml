@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="io.haedoang.springmybatis.mapper.ArticleMapper">
+    <resultMap id="articleList" type="io.haedoang.springmybatis.entity.Article">
+        <id column="id" property="id"/>
+        <id column="title" property="title"/>
+        <id column="author" property="author"/>
+    </resultMap>
 
     <select id="findOne" parameterType="Long" resultType="Article">
         SELECT *
           FROM ARTICLES
          WHERE ID = #{id}
+    </select>
+
+    <select id="list" resultMap="articleList">
+        SELECT *
+          FROM ARTICLES
     </select>
 </mapper>

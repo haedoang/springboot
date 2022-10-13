@@ -4,6 +4,7 @@ import io.haedoang.springmybatis.entity.Article;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -15,4 +16,6 @@ import java.util.Optional;
 @Mapper
 public interface ArticleMapper {
     Optional<Article> findOne(Long id);
+
+    List<Article> list();
 }

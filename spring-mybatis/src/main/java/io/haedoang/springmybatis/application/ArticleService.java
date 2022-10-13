@@ -4,7 +4,9 @@ import io.haedoang.springmybatis.entity.Article;
 import io.haedoang.springmybatis.mapper.ArticleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
@@ -13,6 +15,7 @@ import java.util.NoSuchElementException;
  * description :
  */
 @Service
+@Transactional(readOnly = true)
 public class ArticleService {
 
     private ArticleMapper articleMapper;
@@ -25,5 +28,9 @@ public class ArticleService {
     public Article findOne(Long id) {
         return articleMapper.findOne(id)
                 .orElseThrow(NoSuchElementException::new);
+    }
+
+    public List<Article> list() {
+        return articleMapper.list();
     }
 }
