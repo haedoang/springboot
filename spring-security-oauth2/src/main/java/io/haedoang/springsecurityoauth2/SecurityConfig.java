@@ -3,6 +3,7 @@ package io.haedoang.springsecurityoauth2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
 /**
@@ -10,7 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
  * date : 2022/10/18
  * description :
  */
-@Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
@@ -18,7 +19,16 @@ public class SecurityConfig {
         http.authorizeRequests()
                 .anyRequest().authenticated();
         http.formLogin();
-        http.apply(new CustomSecurityConfigurer().setFlag(false));
+//        http.apply(new CustomSecurityConfigurer().setFlag(false));
+        return http.build();
+    }
+
+    @Bean
+    SecurityFilterChain securityFilterChain2(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .anyRequest().authenticated();
+        http.httpBasic();
+//        http.apply(new CustomSecurityConfigurer().setFlag(false));
         return http.build();
     }
 }

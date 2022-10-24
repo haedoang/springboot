@@ -6,13 +6,13 @@
 ```text
     SpringWebMvcImportSelector
                 |
-  SecurityFilterAutoConfiguration
+  SecurityFilterAutoConfiguration   //DelegatingFilterProxyRegistrationBean
                 |
     WebMvcSecurityConfiguration
                 |
     HttpSecurityConfiguration       //HttpSecurity(protoType)
                 |
-SpringBootWebSecurityConfiguration  //defaultSecurityFilterChain
+SpringBootWebSecurityConfiguration  //defaultSecurityFilterChain -> Custom 생성 시 제외 
                 |
      WebSecurityConfiguration       //WebSecurity(SecurityFilterChains)
 ```
