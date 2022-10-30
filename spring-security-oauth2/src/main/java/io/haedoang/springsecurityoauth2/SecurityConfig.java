@@ -27,7 +27,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated();
 //        http.apply(new CustomSecurityConfigurer().setFlag(false));
         http.formLogin();
-        http.httpBasic();
+//        http.httpBasic();
 
 //        http.exceptionHandling().authenticationEntryPoint(new AuthenticationEntryPoint() {
 //            @Override
