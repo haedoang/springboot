@@ -1,0 +1,26 @@
+### 상품index 조회
+GET localhost:9200/product/doc/1
+
+### 상품index 등록
+POST localhost:9200/product/doc/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "상품1",
+  "price": "20000000"
+}
+
+### 상품index 수정
+PUT localhost:9200/product/doc/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "상품1",
+  "price": "80000000"
+}
+
+### 상품 삭제
+
+DELETE localhost:9200/product/doc/1

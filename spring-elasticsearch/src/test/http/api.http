@@ -1,0 +1,24 @@
+### 상품 조회
+GET localhost:8080/api/v1/products/1
+
+### 상품 등록
+POST localhost:8080/api/v1/products
+Content-Type: application/json
+
+{
+  "name": "상품1",
+  "price": 5000000
+}
+
+### 상품 수정
+PUT localhost:8080/api/v1/products/2
+Content-Type: application/json
+
+{
+  "name": "상품2",
+  "price": 5000000
+}
+
+### 상품 삭제
+
+DELETE localhost:8080/api/v1/products/2
