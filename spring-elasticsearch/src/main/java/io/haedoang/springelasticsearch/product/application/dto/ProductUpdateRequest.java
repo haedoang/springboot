@@ -1,6 +1,6 @@
-package io.haedoang.springelasticsearch.application.dto;
+package io.haedoang.springelasticsearch.product.application.dto;
 
-import io.haedoang.springelasticsearch.domain.Product;
+import io.haedoang.springelasticsearch.product.domain.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,12 +14,11 @@ import static lombok.AccessLevel.PRIVATE;
 @Getter
 @NoArgsConstructor(access = PRIVATE)
 @AllArgsConstructor(access = PRIVATE)
-public class ProductSaveRequest {
+public class ProductUpdateRequest {
     private String name;
     private BigDecimal price;
 
-    public Product toEntity(long id) {
-        return Product.valueOf(id, name, price);
+    public Product toEntity(String id) {
+        return Product.valueOf(Long.valueOf(id), name, price);
     }
-
 }

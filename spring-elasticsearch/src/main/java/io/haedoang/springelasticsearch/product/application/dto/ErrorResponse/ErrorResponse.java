@@ -1,4 +1,4 @@
-package io.haedoang.springelasticsearch.application.dto.ErrorResponse;
+package io.haedoang.springelasticsearch.product.application.dto.ErrorResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

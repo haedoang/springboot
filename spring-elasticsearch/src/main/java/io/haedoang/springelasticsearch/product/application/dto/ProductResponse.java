@@ -1,13 +1,12 @@
-package io.haedoang.springelasticsearch.application.dto;
+package io.haedoang.springelasticsearch.product.application.dto;
 
-import io.haedoang.springelasticsearch.domain.Product;
+import io.haedoang.springelasticsearch.product.domain.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 import static lombok.AccessLevel.PRIVATE;
 

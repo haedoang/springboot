@@ -1,8 +1,8 @@
-package io.haedoang.springelasticsearch.infra;
+package io.haedoang.springelasticsearch.product.infra;
 
-import io.haedoang.springelasticsearch.application.dto.ProductSaveRequest;
-import io.haedoang.springelasticsearch.application.dto.ProductUpdateRequest;
-import io.haedoang.springelasticsearch.domain.Product;
+import io.haedoang.springelasticsearch.product.application.dto.ProductSaveRequest;
+import io.haedoang.springelasticsearch.product.application.dto.ProductUpdateRequest;
+import io.haedoang.springelasticsearch.product.domain.Product;
 import io.haedoang.springelasticsearch.util.ConvertUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

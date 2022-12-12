@@ -1,4 +1,4 @@
-package io.haedoang.springelasticsearch.domain;
+package io.haedoang.springelasticsearch.product.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

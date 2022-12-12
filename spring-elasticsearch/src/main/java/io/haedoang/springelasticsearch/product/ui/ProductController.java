@@ -1,10 +1,10 @@
-package io.haedoang.springelasticsearch.ui;
+package io.haedoang.springelasticsearch.product.ui;
 
-import io.haedoang.springelasticsearch.application.ProductService;
-import io.haedoang.springelasticsearch.application.dto.ErrorResponse.ErrorResponse;
-import io.haedoang.springelasticsearch.application.dto.ProductResponse;
-import io.haedoang.springelasticsearch.application.dto.ProductSaveRequest;
-import io.haedoang.springelasticsearch.application.dto.ProductUpdateRequest;
+import io.haedoang.springelasticsearch.product.application.ProductService;
+import io.haedoang.springelasticsearch.product.application.dto.ErrorResponse.ErrorResponse;
+import io.haedoang.springelasticsearch.product.application.dto.ProductResponse;
+import io.haedoang.springelasticsearch.product.application.dto.ProductSaveRequest;
+import io.haedoang.springelasticsearch.product.application.dto.ProductUpdateRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
