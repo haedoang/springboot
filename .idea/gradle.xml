@@ -4,7 +4,14 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-cloud-config/config-client" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-cloud-config/config-server" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/spring-ehcache" />
         <option name="gradleHome" value="$PROJECT_DIR$/../gradle-7.5" />
         <option name="gradleJvm" value="#JAVA_HOME" />
@@ -15,7 +22,6 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/spring-logging" />
         <option name="gradleHome" value="$PROJECT_DIR$/../gradle-7.5" />
         <option name="gradleJvm" value="#JAVA_HOME" />
@@ -26,7 +32,6 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/spring-redis" />
         <option name="gradleHome" value="$PROJECT_DIR$/../gradle-7.5" />
         <option name="gradleJvm" value="#JAVA_HOME" />
@@ -37,7 +42,6 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/spring-sample-caching" />
         <option name="gradleHome" value="$PROJECT_DIR$/../gradle-7.5" />
         <option name="gradleJvm" value="#JAVA_HOME" />
@@ -48,7 +52,6 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/spring-sample-rest" />
         <option name="gradleHome" value="$PROJECT_DIR$/../gradle-7.5" />
         <option name="gradleJvm" value="#JAVA_HOME" />

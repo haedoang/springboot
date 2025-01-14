@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: foo
+  profiles:
+    active: development, development-db
+
+  config:
+    import: optional:configserver:http://localhost:8888
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: refresh
+# health indicator
+#  health:
+#    config:
+#      enabled: false
