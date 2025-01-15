@@ -1,0 +1,5 @@
+rootProject.name='spring-cloud-discovery'
+
+include 'eureka-server'
+include 'service-api'
+include 'service-user'
