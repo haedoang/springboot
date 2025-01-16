@@ -1,0 +1,15 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  client:
+    # Eureka 서버를 Client 로 등록할지 여부
+    register-with-eureka: false
+    # 유레카 서버로부터 서비스 목록을 로컬에 캐싱할지 여부 (장애 복구 시 사용)
+    fetch-registry: false
+    # 서버가 요청을 처리할 준비가 될 때까지 대기하는 시간 (밀리초)
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
