@@ -5,16 +5,19 @@ spring:
     name: gateway-server
   cloud:
     gateway:
-      mvc:
-        routes:
+      routes:
         - id: service-api
-          uri: lb://SERVICE-API
+          uri: lb://service-api
           predicates:
             - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /${segment}
         - id: service-user
-          uri: lb://SERVICE-USER
+          uri: lb://service-user
           predicates:
             - Path=/user/**
+          filters:
+            - RewritePath=/user/(?<segment>.*), /${segment}
 
 eureka:
   client:
