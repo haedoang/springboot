@@ -2,3 +2,32 @@ spring:
   application:
     name: api-server
 
+resilience4j:
+  circuitbreaker:
+    instances:
+      slow:
+        slidingWindowSize: 3 # 최근 N번 기준으 성공 실패 비율 계산
+        slidingWindowType: COUNT_BASED # 카운트 기반 윈도우[COUNT_BASED, TIME_BASED]
+        failureRateThreshold: 50 # 실패율이 50% 초과하면 OPEN 상태로 전환
+        waitDurationInOpenState: 5s #CircuitBreaker 가 OPEN 일 경우 대기 시간. 대기 시간 이후 HALF_OPEN 상태로 변경
+  timelimiter:
+    instances:
+      slow:
+        timeoutDuration: 2s
+        cancelRunningFuture: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+logging:
+  level:
+    io.github.resilience4j: DEBUG
