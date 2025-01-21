@@ -1,12 +1,13 @@
 package io.haedoang.apiserver.ui;
 
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
-import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import io.haedoang.apiserver.application.SampleRestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,5 +52,12 @@ public class SampleController {
     public CircuitBreaker.State circuitStatus(@PathVariable String name) {
 
         return circuitBreakerRegistry.circuitBreaker(name).getState();
+    }
+
+    @GetMapping("/bulkhead")
+    @Bulkhead(name = "testApi", type = Bulkhead.Type.SEMAPHORE)
+    public ResponseEntity<String> testEndpoint() throws InterruptedException {
+        //Thread.sleep(1000);
+        return ResponseEntity.ok("it works!");
     }
 }
