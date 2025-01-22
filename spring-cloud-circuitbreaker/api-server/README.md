@@ -99,6 +99,8 @@ curl localhost:8080/circuit/slow
 ### Retry
 
 ### Time Limiter
-
+- 긴 작업에 대해서 TimeOutException 예외를 발생시킨다.
+- default 1s 미만인 경우 TimeOutException 발생 후 circuitBreaker 동작 확인
+> curl localhost:8080/delay/{seconds}
 ### Cache
 

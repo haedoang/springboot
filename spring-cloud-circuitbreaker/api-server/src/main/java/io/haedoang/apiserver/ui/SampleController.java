@@ -57,7 +57,7 @@ public class SampleController {
     @GetMapping("/bulkhead")
     @Bulkhead(name = "testApi", type = Bulkhead.Type.SEMAPHORE)
     public ResponseEntity<String> testEndpoint() throws InterruptedException {
-        //Thread.sleep(1000);
+        Thread.sleep(1000);
         return ResponseEntity.ok("it works!");
     }
 }
