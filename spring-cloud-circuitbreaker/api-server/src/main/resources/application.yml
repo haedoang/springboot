@@ -17,8 +17,13 @@ resilience4j:
         cancelRunningFuture: true
   bulkhead:
     instances:
-      testApi:
+      bulkheadApi:
         maxConcurrentCalls: 2
+  ratelimiter:
+    instances:
+      rateLimiterApi:
+        limitForPeriod: 10  #허용 요청 수
+        limitRefreshPeriod: 60s #갱신 주기
 
 management:
   endpoints:

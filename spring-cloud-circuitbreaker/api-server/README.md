@@ -95,7 +95,53 @@ curl localhost:8080/circuit/slow
      vus_max........................: 5      min=5          max=5
 ```
 ### Rate Limiter
+- 특정 시간 단위당 허용되는 요청 수를 제한
+- 초당/분당 시간단위로 허용할 요청 개수를 정의함 
+- 제한된 요청을 대기하거나 거부 시킴
+- 과도한 트래픽 요청 방지
+- 테스트 시나리오
+  - 초기 10개의 요청은 허용, 이후의 요청에 대해서 RequestNotPermitted 예외 발생 이후 return  429 body: fallback 
+> k6 run rateLimiter.js
+```text
+➜  k6 git:(master) ✗ k6 run rateLimiter.js
 
+          /\      |‾‾| /‾‾/   /‾‾/
+     /\  /  \     |  |/  /   /  /
+    /  \/    \    |     (   /   ‾‾\
+   /          \   |  |\  \ |  (‾)  |
+  / __________ \  |__| \__\ \_____/ .io
+
+     execution: local
+        script: rateLimiter.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 20 iterations shared among 1 VUs (maxDuration: 10m0s, gracefulStop: 30s)
+
+
+     ✓ is status 200
+     ✓ body contains "it works!"
+     ✓ is status 429
+     ✓ body contains "fallback"
+
+     checks.........................: 100.00% ✓ 40       ✗ 0
+     data_received..................: 2.4 kB  48 B/s
+     data_sent......................: 1.8 kB  36 B/s
+     http_req_blocked...............: avg=38.44µs min=0s       med=2µs      max=695µs  p(90)=9.1µs   p(95)=44.24µs
+     http_req_connecting............: avg=13µs    min=0s       med=0s       max=260µs  p(90)=0s      p(95)=12.99µs
+     http_req_duration..............: avg=2.5s    min=590µs    med=2.53s    max=5.01s  p(90)=5.01s   p(95)=5.01s
+       { expected_response:true }...: avg=7.22ms  min=590µs    med=740.49µs max=64.4ms p(90)=8.32ms  p(95)=36.36ms
+     http_req_failed................: 50.00%  ✓ 10       ✗ 10
+     http_req_receiving.............: avg=71.84µs min=7µs      med=60.5µs   max=221µs  p(90)=170.2µs p(95)=200.1µs
+     http_req_sending...............: avg=21.45µs min=2µs      med=12.5µs   max=65µs   p(90)=49.3µs  p(95)=52.64µs
+     http_req_tls_handshaking.......: avg=0s      min=0s       med=0s       max=0s     p(90)=0s      p(95)=0s
+     http_req_waiting...............: avg=2.5s    min=575µs    med=2.53s    max=5.01s  p(90)=5.01s   p(95)=5.01s
+     http_reqs......................: 20      0.398639/s
+     iteration_duration.............: avg=2.5s    min=618.04µs med=2.53s    max=5.01s  p(90)=5.01s   p(95)=5.01s
+     iterations.....................: 20      0.398639/s
+     vus............................: 1       min=1      max=1
+     vus_max........................: 1       min=1      max=1
+```
 ### Retry
 
 ### Time Limiter

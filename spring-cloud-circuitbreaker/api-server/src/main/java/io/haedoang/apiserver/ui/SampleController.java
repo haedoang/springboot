@@ -3,10 +3,12 @@ package io.haedoang.apiserver.ui;
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.haedoang.apiserver.application.SampleRestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,9 +57,21 @@ public class SampleController {
     }
 
     @GetMapping("/bulkhead")
-    @Bulkhead(name = "testApi", type = Bulkhead.Type.SEMAPHORE)
-    public ResponseEntity<String> testEndpoint() throws InterruptedException {
+    @Bulkhead(name = "bulkheadApi", type = Bulkhead.Type.SEMAPHORE)
+    public ResponseEntity<String> bulkheadApi() throws InterruptedException {
         Thread.sleep(1000);
         return ResponseEntity.ok("it works!");
+    }
+
+    @GetMapping("/rateLimiter")
+    @RateLimiter(name = "rateLimiterApi", fallbackMethod = "fallback")
+    public ResponseEntity<String> rateLimiterApi() {
+        return ResponseEntity.ok("it works!");
+    }
+
+    public ResponseEntity<String> fallback(Exception e) {
+        log.warn("fallback", e);
+
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body("fallback");
     }
 }
