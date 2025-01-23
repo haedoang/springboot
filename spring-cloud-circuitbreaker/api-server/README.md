@@ -146,6 +146,7 @@ curl localhost:8080/circuit/slow
 - 특정 요청에 대해 재시도 설정을 할 수 있ㅇ므
 - 일시적 장애 대응 및 네트워크 관련 오류 처리
 - 성능 오버헤드가 발생할 수 있으며, 부하가 발생할 수 있다(운영 시 경험함...)
+> curl localhost:8080/retry
 ### Time Limiter
 - 긴 작업에 대해서 TimeOutException 예외를 발생시킨다.
 - default 1s 미만인 경우 TimeOutException 발생 후 circuitBreaker 동작 확인
