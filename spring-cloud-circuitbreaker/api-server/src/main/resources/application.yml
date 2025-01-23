@@ -24,6 +24,13 @@ resilience4j:
       rateLimiterApi:
         limitForPeriod: 10  #허용 요청 수
         limitRefreshPeriod: 60s #갱신 주기
+  retry:
+    instances:
+      backendService:
+        maxAttempts: 3  # 최대 요청 회수
+        waitDuration: 100ms #대기 시간
+        retryExceptions: #리트라이 대상 예외
+          - java.lang.RuntimeException
 
 management:
   endpoints:
