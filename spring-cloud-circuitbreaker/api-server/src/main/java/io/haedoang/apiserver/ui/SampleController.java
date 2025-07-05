@@ -4,6 +4,7 @@ import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.haedoang.apiserver.application.RetryService;
 import io.haedoang.apiserver.application.SampleRestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,7 @@ import java.util.Map;
 public class SampleController {
 
     private final SampleRestService service;
+    private final RetryService retryService;
     private final CircuitBreakerFactory circuitBreakerFactory;
     private final CircuitBreakerRegistry circuitBreakerRegistry;
 
@@ -67,6 +69,11 @@ public class SampleController {
     @RateLimiter(name = "rateLimiterApi", fallbackMethod = "fallback")
     public ResponseEntity<String> rateLimiterApi() {
         return ResponseEntity.ok("it works!");
+    }
+
+    @GetMapping("retry")
+    public ResponseEntity<String> retry() {
+        return ResponseEntity.ok(retryService.retryableService());
     }
 
     public ResponseEntity<String> fallback(Exception e) {
