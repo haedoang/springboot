@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-tracing
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          client: DEBUG

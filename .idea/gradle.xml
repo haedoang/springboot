@@ -61,6 +61,10 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-tracing" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
