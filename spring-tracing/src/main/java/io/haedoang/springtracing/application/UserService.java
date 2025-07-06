@@ -17,9 +17,13 @@ public class UserService {
     private final Tracer tracer;
     private final UserRepository userRepository;
 
+    private final AuditService auditService;
+
     public List<User> getUsers() {
         log.info("invoke userService.gerUsers {} {}", tracer.currentSpan().context().traceId(), tracer.currentSpan().context().spanId());
 
+        auditService.saveAudit(this.getClass().getSimpleName());
+        auditService.saveAudit2(this.getClass().getSimpleName());
         return userRepository.getUsers();
     }
 }
